@@ -1,0 +1,138 @@
+
+@mixin button-size($font-size: $font-size-default, $btn-padding: $btn-padding, $border-radius: $btn-radius, $line-height: $btn-line-height) {
+    padding: $btn-padding;
+    font-size: $font-size;
+    line-height: $line-height;
+    border-radius: $border-radius;
+}
+@mixin button-style($background-color, $font-color: auto, $border-color: auto, $style: solid) {
+    @if $style != hollow {
+        @if $font-color == auto {
+            $font-color: islight($background-color);
+        }
+        @if $border-color == auto {
+            $border-color: darken($background-color, 5%);
+        }
+        color: $font-color;
+        background-color: $background-color;
+        border-color: $border-color;
+        &:enabled:active,
+        &.active:enabled {
+            color: $font-color;
+            background-color: darken($background-color, 10%);
+            border-color: darken($border-color, 12%);
+        }
+    } @else {
+        color: $background-color;
+        border-color: $background-color;
+        &:enabled:active,
+        &.active:enabled {
+            color: #fff;
+            background-color: $background-color;
+            border-color: $background-color;
+        }
+    }
+}
+
+.#{$btn-prefix} {
+    display: inline-block;
+    border: 1px solid transparent;
+    cursor: pointer;
+    outline: none;
+    vertical-align: middle;
+    transition: .15s ease-out;
+    white-space: nowrap;
+    text-align: center;
+    appearance: none !important; // Do not use built-in appearance
+    touch-action: manipulation;
+    @include button-size();
+    @include button-style($btn-default-bg-color, $btn-default-color, $btn-default-border-color);
+    &.disabled,
+    &[disabled] {
+        opacity: 0.5;
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+}
+
+// block displayed
+.#{$btn-prefix}-block {
+    display: block;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+// different colors
+@each $color-key, $color in $btn-colors {
+    .#{$btn-prefix}-#{$color-key} {
+        @include button-style($color);
+    }
+}
+
+// different sizes
+@each $btn-size-style, $btn-size in $padding-sizes {
+    .#{$btn-prefix}-#{$btn-size-style} {
+        @include button-size($btn-size);
+    }
+}
+
+// hollow button
+.#{$btn-prefix}-hollow {
+    background-color: transparent;
+    &.#{$btn-prefix} {
+        @include button-style($btn-default-color, $style:hollow);
+    }
+    @each $color-key, $color in $btn-colors {
+        &.#{$btn-prefix}-#{$color-key} {
+            @include button-style($color, $style:hollow);
+        }
+    }
+}
+
+// ButtonGroup
+.#{$btn-group-prefix} {
+    >.#{$btn-prefix}{
+        &:first-child:not(:last-child){
+            margin-right: 0;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+        &:not(:first-child):not(:last-child) {
+            margin-left: -1px;
+            margin-right: 0;
+            border-radius: 0;
+        }
+        &:last-child:not(:first-child) {
+            margin-left: -1px;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+    }
+}
+.#{$btn-group-prefix}-justified {
+    display: flex;
+    width: 100%;
+    // overflow: hidden;
+    >.#{$btn-prefix} {
+        display: block;
+        flex: 1;
+        margin: 0;
+
+        // fix IOS 7 border overflow of flexbox
+        &:not(:last-child) {
+            position: relative;
+        }
+        &:not(:first-child) {
+            border-left-width: 0;
+        }
+    }
+}
+
+@each $size-style, $btn-size in $padding-sizes {
+    .#{$btn-group-prefix}-#{$size-style} {
+        >.#{$btn-prefix} {
+            @include button-size($btn-size);
+        }
+    }
+}

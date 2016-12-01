@@ -1,0 +1,27 @@
+@font-face {
+  font-family: 'iconfont';  /* project id："174605" */
+  src: url('//at.alicdn.com/t/font_j60neux8b8olxr.eot');
+  src: url('//at.alicdn.com/t/font_j60neux8b8olxr.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_j60neux8b8olxr.woff') format('woff'),
+  url('//at.alicdn.com/t/font_j60neux8b8olxr.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_j60neux8b8olxr.svg#iconfont') format('svg');
+}
+
+.#{$icon-prefix} {
+    position: relative;
+    display: inline-block;
+    font-family: 'iconfont';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@each $icon-name, $icon-value in $icons {
+    .#{$icon-prefix}-#{$icon-name} {
+        &:before {
+            content: $icon-value;
+        }
+    }
+}

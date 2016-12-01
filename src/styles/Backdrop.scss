@@ -1,0 +1,20 @@
+/**
+ * Backdrop styles
+ */
+.#{$backdrop-prefix} {
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1000;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0.3);
+  transition:opacity .3s linear;
+  opacity: 0;
+  &.in{
+    display: block;
+    opacity: 1;
+  }
+}

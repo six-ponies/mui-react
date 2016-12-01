@@ -1,0 +1,69 @@
+.#{$slide-prefix}-container {
+    // display: flex;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    .#{$slide-prefix} {
+        // flex: 1 0 auto;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-color: #f8f8f8;
+        animation-duration: 300ms;
+        animation-timing-function: cubic-bezier(.36, .66, .04, 1);
+        animation-fill-mode: forwards;
+    }
+}
+
+@keyframes #{$slide-prefix}-fr-enter {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+@keyframes #{$slide-prefix}-fr-leave {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-25%);
+    }
+}
+
+@keyframes #{$slide-prefix}-fl-enter {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+@keyframes #{$slide-prefix}-fl-leave {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(25%);
+    }
+}
+.slide-fr-enter.slide-fr-enter-active {
+    animation-name: slide-fr-enter;
+    z-index: 10;
+}
+.slide-fr-leave.slide-fr-leave-active {
+    animation-name: slide-fr-leave;
+    z-index: -10;
+}
+.slide-fl-enter.slide-fl-enter-active {
+    animation-name: slide-fl-enter;
+    z-index: 10;
+}
+.slide-fl-leave.slide-fr-leave-active {
+    animation-name: slide-fl-leave;
+    z-index: -10;
+}

@@ -1,0 +1,36 @@
+// Functions
+@import 'functions.scss';
+
+// Variables
+@import 'variables.scss';
+
+// based on normalize.css 
+@import '~normalize.css/normalize.css';
+
+* {
+    box-sizing: border-box;
+    // remove outline when the element is on focus
+    outline: none;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    -webkit-touch-callout: none;
+}
+html,body {
+    height: 100%;
+    overflow: hidden;
+    font-family: "Helvetica Neue", "PingFang SC", "Segoe UI", Tahoma, Arial, "Hiragino Sans GB", STHeiti, "Microsoft Yahei", "WenQuanYi Micro Hei", sans-serif;
+    font-size: $rem-base;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+body {
+    padding: 0;
+    margin: 0;
+    color: #000;
+    background-color: $default-bg-color;
+    -webkit-overflow-scrolling: touch;
+    user-select: none; // The text of the element and sub-elements will not be able to be selected.
+    line-height: 1.6;
+}
+a {
+    text-decoration: none;
+}

@@ -1,0 +1,15 @@
+/cfg
+/coverage
+/docs
+/src
+/test
+/tools
+/docs-built
+.editorconfig
+.eslintrc
+.gitignore
+.npmignore
+.yo-rc.json
+karma.conf.js
+server.js
+webpack.config.js

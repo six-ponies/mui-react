@@ -1,0 +1,23 @@
+@function islight($color, $threshold: 60%, $yes: #333, $no: #fff) {
+    @if (lightness($color) > $threshold) {
+        @return $yes;
+    }
+    @else {
+        @return $no;
+    }
+}
+
+
+@function strip-unit($num) {
+    @return $num / ($num * 0 + 1);
+}
+
+
+@function calc-rem($value, $base-value: null) {
+    @if $base-value == null {
+        $base-value: $rem-base;
+    }
+    $value: strip-unit($value) / strip-unit($base-value) * 1rem;
+    @if $value == 0rem {$value: 0} 
+    @return $value
+}

@@ -1,0 +1,144 @@
+/**
+ *  Scroll Picker 
+ * @author mayingcong
+ * @createAt 2016-10-29
+ */
+
+/* backdrop style */
+
+.pop-picker-backdrop {
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1000;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0.3);
+  transition:opacity 3s linear;
+  opacity: 0;
+  &.in{
+    display: block;
+    opacity: 1;
+  }
+}
+
+/* pop picker style */
+.pop-picker {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1001;
+  box-sizing: border-box;
+  background-color: #eee;
+  border-top: 1px solid #ccc;
+  box-shadow: 0 -5px 7px 0 rgba(0, 0, 0, .1);
+  transform: translateY(300px);
+  transition: transform .3s;
+  &.in{
+    transform: translateY(0);
+  }
+  > .pop-picker-title {
+    display: flex;
+    > div{
+      flex: 1 1;
+      text-align: center;
+      font-size: 14px;
+      line-height: 32px;
+      vertical-align: middle;
+      font-weight: 400;
+      border-top: 1px solid #ddd;
+    }
+  }
+
+  > .pop-picker-header {
+    padding: 6px;
+    button {
+      border-radius: 5px;
+      margin: 0;
+    }
+  }
+  >.pop-picker-body {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    border-top: solid 1px #ddd;
+    >.pop-picker-container {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      border: none;
+      background-color: #ddd;
+      box-sizing: border-box;
+      overflow: hidden;
+      -webkit-mask-box-image:-webkit-linear-gradient(bottom, transparent, transparent 5%, #fff 20%, #fff 80%, transparent 95%, transparent);
+      .pop-picker-inner {
+        position: relative;
+        // width: 100%;
+        flex: 1 1;
+        -webkit-box-flex: 1;
+        height: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
+        .pop-picker-rule, .pop-picker-scroller{
+          position: absolute;
+          left: 0;
+          top: 50%;
+          margin-top: -18px;
+          width: 100%;
+          height: 36px;
+          line-height: 36px;
+          &.pop-picker-rule-ft {
+            z-index: 2;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+          }
+          &.pop-picker-rule-bg {
+            z-index: 0;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            background-color: #cfd5da;
+          }
+        }
+        .pop-picker-scroller {
+          // position: relative;
+          z-index: 1;
+          padding: 0;
+          margin: -18px 0 0 0 ;
+          list-style: none;
+          transition-timing-function: ease-out;
+          > li {
+            // position: absolute;
+            // z-index: 2;
+            width: 100%;
+            height: 100%;
+            padding: 0 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-align: center;
+            vertical-align: middle;
+            font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+            font-size: 16px;
+            color: #888;
+            text-overflow: ellipsis;
+            cursor:pointer;
+            // visibility: hidden;
+            &.visible {
+              // visibility: visible;
+            }
+            &.highlight {
+              color: #222;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.pop-picker-success {
+  background-color: red;
+}

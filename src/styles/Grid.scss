@@ -1,0 +1,59 @@
+/* Grid style*/
+
+@mixin grid-size($num) {
+    $size: percentage($num / $total-columns);
+    flex: 0 0 $size;
+    max-width: $size;
+}
+
+@mixin grid-wrap($wrap: nowrap) {
+    flex-wrap: $wrap;
+}
+
+@mixin grid-align($align: left) {
+    justify-content: $align;
+}
+
+@mixin grid-avg($num) {
+    $size: percentage(1 / $num);
+    flex: 0 0 $size;
+    max-width: $size
+}
+.row {
+    display: flex;
+    align-items: stretch;
+    overflow: hidden;
+}
+.col {
+    flex: 1 1 auto;
+    padding: 0.625rem;
+}
+
+// .row-wrap .row-wrap-reverse
+@each $wrap in wrap, wrap-reverse {
+    .#{$grid-prefix}-#{$wrap} {
+        @include grid-wrap($wrap);
+    }
+}
+
+@each $grid-align-key, $grid-align-value in $grid-aligns {
+    .#{$grid-prefix}-#{$grid-align-key} {
+        @include grid-align($grid-align-value); 
+    }
+}
+
+@for $i from 1 through $total-columns {
+    .#{$col-prefix}-#{$i} {
+        @include grid-size($i);
+    }
+    .#{$col-prefix}-offset-#{$i} {
+        margin-left: percentage($i / $total-columns);
+    }
+    .#{$grid-prefix}-avg-#{$i} {
+        @include grid-wrap(wrap);
+        .#{$col-prefix} {
+            @include grid-avg($i);
+        }
+    }
+
+}

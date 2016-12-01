@@ -1,0 +1,23 @@
+/**
+ *  Container 
+ * @author mayingcong
+ * @createAt 2016-10-26
+ */
+
+.container {
+    padding: 0.9375rem;
+    &.scrollable {
+        max-height: 100%;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch; // enable initial scroll on ios
+    }
+    &.fill {
+        height: 100%;
+    }
+    &.column {
+        display: flex;
+        flex-direction: column;
+    }
+}
+

@@ -1,0 +1,119 @@
+$default-bg-color: #f8f8f8 !default;
+
+$primary: #0e90d2 !default;
+$secondary: lighten($primary, 15%) !default;
+$success: #5eb95e !default;
+$warning: #F37B1D !default;
+$alert: #dd514c !default;
+
+$rem-base: 16px;
+
+$base-font-size: 100%;
+
+// Define font size
+$font-size-xs: calc-rem(12) !default;
+$font-size-sm: calc-rem(14) !default;
+$font-size-default: calc-rem(16) !default;
+$font-size-lg: calc-rem(18) !default;
+$font-size-xl: calc-rem(20) !default;
+$font-size-xxl: calc-rem(24) !default;
+
+$padding-sizes: (
+    xs: $font-size-xs,
+    sm: $font-size-sm,
+    lg: $font-size-lg,
+    xl: $font-size-xl
+);
+$btn-colors: (
+    primary: $primary,
+    secondary: $secondary,
+    success: $success,
+    warning: $warning,
+    alert: $alert,
+);
+
+// Icon Varibles
+$icon-prefix: iconfont !default;
+$icons: (
+    about: "\e632",
+    add: "\e767",
+    appreciate: "\e644",
+    back: "\e679",
+    calendar: "\e74a",
+    close: "\e646",
+    delete: "\e6b4",
+    edit: "\e649",
+    form: "\e699",
+    friend: "\e6cc",
+    friend_add: "\e6ca",
+    group: "\e753",
+    home: "\e6b8",
+    list: "\e682",
+    loading: "\e64f",
+    lock: "\e6c0",
+    mark: "\e731",
+    message: "\e6bc",
+    more: "\e684",
+    move: "\e768",
+    my: "\e78b",
+    profile: "\e6b7",
+    question: "\e691",
+    right: "\e6a3",
+    round_check: "\e657",
+    round_close: "\e659",
+    search: "\e65c",
+    settings: "\e68a",
+    text: "\e791",
+    time: "\e65f",
+    unfold: "\e661",
+    unlock: "\e6c2",
+) !default;
+
+// Button Varibles
+$btn-prefix: btn !default;
+$btn-padding: 0.75em 1em !default;
+$btn-radius: 5px !default;
+$btn-line-height: 1 !default;
+$btn-default-bg-color: #fff;
+$btn-default-color: #333;
+$btn-default-border-color: #ccc;
+
+// ButtonGroup Varibles 
+$btn-group-prefix: #{$btn-prefix}-group !default;
+
+// Grid Varibles
+$grid-prefix: row !default;
+$col-prefix: col !default;
+$total-columns: 6 !default;
+$grid-aligns: (
+    left: flex-start,
+    right: flex-end,
+    center: center,
+    between: space-between,
+    around: space-around
+) !default;
+
+// List Group Varibles
+$list-prefix: list-group !default;
+$item-prefix: #{$list-prefix}-item !default;
+$list-border-color: #e6e6e6;
+
+// Slides Varibles
+$slide-prefix: slide !default;
+
+// BackDrop Varibles
+$backdrop-prefix: backdrop !default;
+
+// Modal Varibles
+$modal-prefix: modal !default;
+
+// TabBar Varibles
+$tabbar-prefix: tabbar !default;
+
+$chryload-prefix: chry-load !default;
+$chryload-sizes: (
+    sm: 20px,
+    lg: 60px,
+    xl: 80px,
+    xxl: 120px
+) !default;

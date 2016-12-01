@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+  - stable
+
+env:
+  - BROWSER=ChromeCi
+  - BROWSER=Firefox
+
+cache:
+  directories:
+    - node_modules
+
+branches:
+  only:
+    - master
