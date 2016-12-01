@@ -3,7 +3,7 @@ Mobile web UI based on React
 
 ## Docs
 
-See the [examples][examples] with live editable examples. Detailed documentation is on the way...
+See the [examples][examples] buikt with mui-react. Detailed documentation is on the way...
 
 ## Local setup
 
