@@ -1,9 +1,9 @@
-# mui-react [![Build Status](https://travis-ci.org/lordisback/react-mui.svg?branch=master)](https://travis-ci.org/lordisback/react-mui) [![npm version](https://badge.fury.io/js/react-mui.svg)](https://badge.fury.io/js/react-mui)
+# mui-react [![Build Status](https://travis-ci.org/lordisback/mui-react.svg?branch=master)](https://travis-ci.org/lordisback/mui-react) [![npm version](https://badge.fury.io/js/mui-react.svg)](https://badge.fury.io/js/mui-react)
 Mobile web UI based on React
 
 ## Docs
 
-See the [examples][examples] with live editable examples. Details documentation is on the way...
+See the [examples][examples] with live editable examples. Detailed documentation is on the way...
 
 ## Local setup
 
