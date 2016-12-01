@@ -1,6 +1,6 @@
 {
   "name": "mui-react",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "mobile web UI build with react, touch devices first",
   "main": "lib/components/index.js",
   "module": "es/components/index.js",
