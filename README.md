@@ -18,5 +18,6 @@ See the [examples][examples] with live editable examples. Detailed documentation
 - Install the repository with `npm install mui-react --save`
 - Import css file so you can use mui-react styles `import 'mui-react/dist/mui-react.css'`
 - Import components with `import {Button} from 'mui-react'`
+- If you don't want the whole file, you can just import with `import Button from 'mui-react/lib/components/Button.js'`
 - Have fun using mui-react
 [examples]: https://lordisback.github.io/mui-react.github.io
