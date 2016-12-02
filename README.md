@@ -3,7 +3,7 @@ Mobile web UI based on React
 
 ## Docs
 
-See the [examples][examples] with live editable examples. Detailed documentation is on the way...
+See the [examples][examples] buikt with mui-react. Detailed documentation is on the way...
 
 ## Local setup
 
@@ -13,7 +13,7 @@ See the [examples][examples] with live editable examples. Detailed documentation
 - Run the docs site in development mode with `npm run docs`. This will show you the examples build with react-mui locally
 - Build src with `npm run build`
 
-## Use mui-react in your project
+## Using mui-react in your project
 
 - Install the repository with `npm install mui-react --save`
 - Import css file so you can use mui-react styles `import 'mui-react/dist/mui-react.css'`
