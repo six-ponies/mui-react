@@ -10,7 +10,7 @@ let ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 let config = Object.assign({}, baseConfig, {
   entry: {
-    'react-mui': path.join(__dirname, '../src/components/index'),
+    'mui-react': path.join(__dirname, '../src/components/index'),
   },
   cache: false,
   output: {
