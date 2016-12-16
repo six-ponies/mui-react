@@ -56,8 +56,14 @@ export const Modal = React.createClass({
 
     onDismissed() {
         var shouldClose = this.props.onDismissed();
-        if (shouldClose === undefined || shouldClose) {
+        if (shouldClose === undefined || (shouldClose && !shouldClose.then)) {
             this.closeModal();
+        } else if (shouldClose && shouldClose.then) {
+            shouldClose.then((data) => {
+                if (data) {
+                    this.closeModal();
+                }
+            })
         }
         console.log('bool ' + shouldClose);
     },
