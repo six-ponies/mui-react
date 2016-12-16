@@ -1,3 +1,4 @@
+
 .#{$modal-prefix} {
     position: fixed;
     z-index: 1001;
@@ -5,20 +6,20 @@
     left: 50%;
     width: 270px;
     // height: 150px;
-    transform: translate3d(-50%, -50%, 0) scale(0.5);
+    transform: translate3d(-50%, -50%, 0);
     background-color: #fff;
-    opacity: 0;
+    // opacity: 0;
     border-radius: 13px;
     text-align: center;
-    transition-duration: 0.4s;
-    transition-property: transform, opacity; 
+    // transition-duration: 0.4s;
+    // transition-property: transform, opacity; 
     &.box-shadow {
         box-shadow:2px 2px 10px #333333;
     }
-    &.in {
-        transform: translate3d(-50%, -50%, 0) scale(1);
-        opacity: 1;
-    }
+    // &.in {
+    //     transform: translate3d(-50%, -50%, 0) scale(1);
+    //     opacity: 1;
+    // }
     .#{$modal-prefix}-header {
         padding: 0.9375rem 0.625rem;
         font-size: 1.125rem;
@@ -45,6 +46,34 @@
             &:last-child {
                 border-right-color: transparent;
             }
+        }
+    }
+}
+
+.#{$modal-prefix}-transition-enter {
+    .#{$modal-prefix} {
+        // opacity: 0;
+        transform: translate3d(-50%, -50%, 0) scale(0.5);
+    }
+    &.#{$modal-prefix}-transition-enter-active {
+        .#{$modal-prefix} {
+            // opacity: 1;
+            transform: translate3d(-50%, -50%, 0) scale(1);
+            transition: transform .4s ease;
+        }
+    }
+}
+
+.#{$modal-prefix}-transition-leave {
+    .#{$modal-prefix} {
+        opacity: 1;
+        transform: translate3d(-50%, -50%, 0) scale(1);
+    }
+    &.#{$modal-prefix}-transition-leave-active {
+        .#{$modal-prefix} {
+            opacity: 0;
+            transform: translate3d(-50%, -50%, 0) scale(0.1);
+            transition: transform .4s ease, opacity .4s ease;
         }
     }
 }

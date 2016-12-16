@@ -8,6 +8,7 @@ import {
     unmountComponentAtNode,
     unstable_renderSubtreeIntoContainer as renderSubtreeIntoContainer
 } from 'react-dom';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import classnames from 'classnames';
 
 import Backdrop from './Backdrop';
@@ -45,7 +46,7 @@ export const Modal = React.createClass({
         };
     },
     componentWillReceiveProps(nextProps) {
-        let isOpen = this.props.isOpen;
+        let isOpen = this.state.isOpen;
         if (!isOpen && nextProps.isOpen) {
             this.openModal();
         } else if (isOpen && !nextProps.isOpen) {
@@ -66,9 +67,10 @@ export const Modal = React.createClass({
      * Open Modal
      */
     openModal() {
-        this.setState({
-            isOpen: true
-        });
+        if (!this.state.isOpen)
+            this.setState({
+                isOpen: true
+            });
     },
 
     /**
@@ -111,16 +113,27 @@ export const Modal = React.createClass({
             'box-shadow': boxShadow,
             'in': isOpen
         });
-        return (
-            <div onTouchMove={(e) => {e.preventDefault();}}>
-                <div className={modalClass}>
-                    <Header classPrefix={classPrefix}>{title}</Header>
-                    <Body classPrefix={classPrefix}>{children}</Body>
-                    <Footer classPrefix={classPrefix} footer={footer} type={type} onDismissed={this.onDismissed} onClosed={this.onClosed}></Footer>
-                </div>
-                {this.renderBackdrop()}
-            </div>
-        );
+        return <ReactCSSTransitionGroup
+                    component="div"
+                    transitionName={classPrefix+'-transition'}
+                    transitionEnterTimeout={400}
+                    transitionLeaveTimeout={400}
+                >
+                {
+
+                    this.state.isOpen ?
+                        (
+                            <div onTouchMove={(e) => {e.preventDefault();}} key="modal">
+                                <div className={modalClass}>
+                                    <Header classPrefix={classPrefix}>{title}</Header>
+                                    <Body classPrefix={classPrefix}>{children}</Body>
+                                    <Footer classPrefix={classPrefix} footer={footer} type={type} onDismissed={this.onDismissed} onClosed={this.onClosed}></Footer>
+                                </div>
+                                {this.renderBackdrop()}
+                            </div>
+                        ) : <span key="none"></span>
+                }
+                </ReactCSSTransitionGroup>
     }
 });
 
