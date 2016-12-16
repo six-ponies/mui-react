@@ -55,12 +55,18 @@ export const Modal = React.createClass({
     },
 
     onDismissed() {
-        this.closeModal();
-        this.props.onDismissed();
+        var shouldClose = this.props.onDismissed();
+        if (shouldClose === undefined || shouldClose) {
+            this.closeModal();
+        }
+        console.log('bool ' + shouldClose);
     },
     onClosed() {
-        this.closeModal();
-        this.props.onClosed();
+        var shouldClose = this.props.onClosed();
+        if (shouldClose === undefined || shouldClose) {
+            this.closeModal();
+        }
+        console.log('bool ' + shouldClose);
     },
 
     /**

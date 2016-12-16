@@ -4,14 +4,14 @@ const About = React.createClass({
     render() {
         return (
             <div>
-                <h3>关于react-mui</h3>
+                <h3>关于mui-react</h3>
                 <p style={{textIndent: '2em'}}>
-                    react-mui是基于React的移动端Web组件库。不同于react-bootstrap，react-mui更侧重在移动端的性能表现。
+                    mui-react是基于React的移动端Web组件库。不同于react-bootstrap，mui-react更侧重在移动端的性能表现。
                 </p>
                 <ul>
-                    <li>react-mui的栅格系统是基于弹性盒子（flexbox）建立的，更加灵活轻便</li>
-                    <li>react-mui添加了移动端比较常见的滚动选择器（scroll picker）</li>
-                    <li>react-mui的Icon库基于<a href="http://www.iconfont.cn/plus">iconfont</a>建立。iconfont是阿里妈妈MUX倾力打造的矢量图标管理、交流平台。</li>
+                    <li>mui-react的栅格系统是基于弹性盒子（flexbox）建立的，更加灵活轻便</li>
+                    <li>mui-react添加了移动端比较常见的滚动选择器（scroll picker）</li>
+                    <li>mui-react的Icon库基于<a href="http://www.iconfont.cn/plus">iconfont</a>建立。iconfont是阿里妈妈MUX倾力打造的矢量图标管理、交流平台。</li>
                 </ul>
                 <h3>版本介绍</h3>
                 <p style={{textIndent: '2em'}}>
