@@ -85,7 +85,7 @@ describe('<Modal>', () => {
         let renderer = ReactTestUtils.createRenderer();
         renderer.render(<Modal title="Alert" isOpen={true}>This is an Alert Modal</Modal>)
         let instance = renderer.getRenderOutput();
-        let children = instance.props.children;
+        let children = instance.props.children.props.children;
         assert.equal(children[0].props.className, 'modal box-shadow in');
         assert.equal(children[0].props.children[0].type, Modal.Header);
         assert.equal(children[0].props.children[1].type, Modal.Body);
@@ -97,53 +97,13 @@ describe('<Modal>', () => {
         let renderer = ReactTestUtils.createRenderer();
         renderer.render(<Modal title="Alert" isOpen={true}>This is an Alert Modal</Modal>)
         let instance = renderer.getRenderOutput();
-        let children = instance.props.children;
+        let children = instance.props.children.props.children;
         assert.ok(children[0].props.className.match(/\bin\b/));
         assert.ok(children[1].props.isOpen);
     });
-    it('Should contain a className in when props isOpen changes to true', () => {
-        let instance = ReactTestUtils.renderIntoDocument(
-            <Modal></Modal>
-        );
-        let modalDom = ReactDOM.findDOMNode(instance);
-        let modal = modalDom.querySelector('.modal');
-        let backdrop = modalDom.querySelector('.backdrop');
-        assert.ok(!modal.className.match(/\bin\b/));
-        assert.ok(!backdrop.className.match(/\bin\b/));
-        instance.componentWillReceiveProps({
-            isOpen: true
-        });
-        assert.ok(modal.className.match(/\bin\b/));
-        assert.ok(backdrop.className.match(/\bin\b/));
-    });
-    it('Should remove "in" if Backdrop clicked', () => {
-        let instance = ReactTestUtils.renderIntoDocument(
-            <Modal isOpen={true} ></Modal>
-        );
-        let modalDom = ReactDOM.findDOMNode(instance);
-        let modal = modalDom.querySelector('.modal');
-        let backdrop = modalDom.querySelector('.backdrop');
-        assert.ok(modal.className.match(/\bin\b/));
-        assert.ok(backdrop.className.match(/\bin\b/));
-        ReactTestUtils.Simulate.click(backdrop);
-        // assert.equal(modal.className, 'modal');
-        assert.ok(!modal.className.match(/\bin\b/));
-        assert.ok(!backdrop.className.match(/\bin\b/));
-    });
-    it('Should not remove "in" if Backdrop clicked', () => {
-        let instance = ReactTestUtils.renderIntoDocument(
-            <Modal isOpen={true} closeByBackdrop={false}></Modal>
-        );
-        let modalDom = ReactDOM.findDOMNode(instance);
-        let modal = modalDom.querySelector('.modal');
-        let backdrop = modalDom.querySelector('.backdrop');
-        assert.ok(modal.className.match(/\bin\b/));
-        assert.ok(backdrop.className.match(/\bin\b/));
-        ReactTestUtils.Simulate.click(backdrop);
-        // assert.equal(modal.className, 'modal');
-        assert.ok(modal.className.match(/\bin\b/));
-        assert.ok(backdrop.className.match(/\bin\b/));
-    });
+
+
+
     describe('<ModalPortal>', () => {
         it('Should return null', () => {
             let renderer = ReactTestUtils.createRenderer();
@@ -153,7 +113,7 @@ describe('<Modal>', () => {
         });
         it('Should render a modal', () => {
             let instance = ReactTestUtils.renderIntoDocument(
-                <ModalPortal></ModalPortal>
+                <ModalPortal isOpen={true}></ModalPortal>
             );
             let modalPortal = document.body.querySelector('.modal-portal');
             let modal = modalPortal.querySelector('.modal');
