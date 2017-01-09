@@ -13,7 +13,7 @@ See the [examples][examples] buikt with mui-react. Detailed documentation is on 
 - Run the docs site in development mode with `npm run docs`. This will show you the examples build with react-mui locally
 - Build src with `npm run build`
 
-## Using mui-react in your project
+## Usage
 
 - Install the repository with `npm install mui-react --save`
 - Import css file so you can use mui-react styles `import 'mui-react/dist/mui-react.css'`
