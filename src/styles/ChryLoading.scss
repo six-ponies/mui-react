@@ -15,16 +15,25 @@
         div {
             position: absolute;
             left: 50%;
-            top:0;
+            // top:0;
             width: 10%;
             height: 100%;
             margin-left: -5%;
-            &:before,&:after{
-                content:'';
-                display:block;
-                height:50%;
-                background:#626262;
-                border-radius: 2px;
+            &:after,
+            &:before {
+                position: absolute;
+                content: '';
+                display: block;
+                height: 30%;
+                width: 100%;
+                border-radius: 50%/16.7%;
+                background-color: #888;
+            }
+            &:before {
+                top: 0;
+            }
+            &:after {
+                bottom: 0;
             }
             &:nth-child(1) {
                 &:before {
@@ -81,16 +90,6 @@
             }
 
         }
-    }
-    .circle-bg {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        width: 50%;
-        height: 50%;
-        margin: -25% 0 0 -25%;
-        background-color: $default-bg-color;
-        border-radius: 50%;
     }
 }
 @each $key, $size in $chryload-sizes {
