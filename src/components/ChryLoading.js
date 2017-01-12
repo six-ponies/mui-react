@@ -19,7 +19,6 @@ const ChryLoading = React.createClass({
                     <div></div>
                     <div></div>
                 </div>
-                <div className="circle-bg"></div>
             </div>
         );
     }
