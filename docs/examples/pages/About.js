@@ -17,12 +17,6 @@ const About = React.createClass({
                 <p style={{textIndent: '2em'}}>
                     当前版本为{`${__VERSION__}`}，可到<a href="https://github.com/lordisback/react-mui">Github</a>上获取最新版本
                 </p>
-
-                <ChryLoading size="sm"></ChryLoading>
-                <ChryLoading></ChryLoading>
-                <ChryLoading size="lg"></ChryLoading>
-                <ChryLoading size="xl"></ChryLoading>
-                <ChryLoading size="xxl"></ChryLoading>
             </div>
         );
     }
