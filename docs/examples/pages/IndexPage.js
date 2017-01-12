@@ -10,19 +10,16 @@ const IndexPage = React.createClass({
         };
     },
     render: function() {
+        let hrefList = ['ButtonPage', 'GridPage', 'ListPage', 'PickerPage', 'ModalPage', 'TabBarPage', 'IconPage', 'ChryLoaderPage'];
         let rightIcon = <i className="iconfont iconfont-right"></i>
         return (
             <Slide.Item>
                 <DocumentTitle title="react-mui">
                     <Container scrollable={true} withPadding={false}>
                         <List>
-                            <List.Item href="#/ButtonPage" title='Button' right={rightIcon}></List.Item>
-                            <List.Item href="#/GridPage" color="primary" title='Grid' right={rightIcon}></List.Item>
-                            <List.Item href="#/ListPage" title='List' right={rightIcon}></List.Item>
-                            <List.Item href="#/PickerPage" title='Picker' right={rightIcon}></List.Item>
-                            <List.Item href="#/ModalPage" title='ModalPage' right={rightIcon}></List.Item>
-                            <List.Item href="#/TabBarPage" title='TabBarPage' right={rightIcon}></List.Item>
-                            <List.Item href="#/IconPage" title='IconPage' right={rightIcon}></List.Item>
+                            {
+                                hrefList.map((item, index) =>  (<List.Item key={index} href={`#/${item}`} title={item} right={rightIcon}></List.Item>))
+                            }
                         </List>
                     </Container>                
                 </DocumentTitle>

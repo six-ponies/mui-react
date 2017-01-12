@@ -6,5 +6,6 @@ export PickerPage from './PickerPage';
 export ModalPage from './ModalPage';
 export TabBarPage from './TabBarPage';
 export IconPage from './IconPage';
+export ChryLoaderPage from './ChryLoaderPage';
 export About from './About';
 // export TransitionPage from './TransitionPage';
